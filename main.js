@@ -1,6 +1,8 @@
 var movies = [];
 var seenCards = [];
 var suggestedCards = [];
+var idCache = {}
+var cardCache = {};
 
 window.onload=function(){
     const node = document.getElementById('movie');
@@ -12,36 +14,51 @@ window.onload=function(){
 }
 
 function getCard(imdb_id, card, updateView){
-    $.ajax({
-        url:"https://prafullasd.pythonanywhere.com/card/" + imdb_id,
-        type:"GET",
-        dataType: 'json',
-        success: function(result){
-            console.log(result);
-            update_dic(card, result);
-            updateView();
-        },
-        error: function(result){
-            console.log(result)
-        }
-    })
+    if (imdb_id in cardCache){
+        result = cardCache[imdb_id];
+        update_dic(card, result);
+        updateView();
+    }
+    else {
+        $.ajax({
+            url:"https://prafullasd.pythonanywhere.com/card/" + imdb_id,
+            type:"GET",
+            dataType: 'json',
+            success: function(result){
+                console.log(result);
+                cardCache[imdb_id] = result;
+                update_dic(card, result);
+                updateView();
+            },
+            error: function(result){
+                console.log(result)
+            }
+        })
+    }
 }
 
 function getMovieAndID(movie, callback){
-    $.ajax({
-        url:"https://prafullasd.pythonanywhere.com/movie",
-        type:"POST",
-        data: JSON.stringify({"movie": movie}),
-        dataType: 'json',
-        contentType: 'application/json',
-        success: function(result){
-            console.log(result);
-            callback(result);
-        },
-        error: function(result){
-            console.log(result)
-        }
-    })
+    if (movie in idCache){
+        result = {"movie": movie, "imdb_id": idCache[movie]}
+        callback(result);
+    }
+    else {
+        $.ajax({
+            url:"https://prafullasd.pythonanywhere.com/movie",
+            type:"POST",
+            data: JSON.stringify({"movie": movie}),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(result){
+                console.log(result);
+                idCache[result["movie"]] = result["imdb_id"]
+                callback(result);
+            },
+            error: function(result){
+                console.log(result)
+            }
+        })
+    }
 }
 
 
