@@ -1,0 +1,91 @@
+<html lang=“en”>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://d4mucfpksywv.cloudfront.net/jukebox/explorer/assets/styles/all.css">
+    <title>Movbee</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://www.jsviews.com/download/jsviews.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="rec">
+        <div id="suggested" class="result"></div>
+        <script id="tmpSuggested" type="text/x-jsrender">
+            <div class="movie">       
+                <h4><input type='button' class="addBtn" value='+' onclick="add('{{:title}}')" /></h4>
+                <a href="{{:url}}">
+                    <div class="movie-img" style="background-image: url('{{:cover}}');"></div>
+                    <div class="text-movie-cont">
+                        <div class="mr-grid">
+                            <div class="col6rest">
+                                <p>{{:title}}</p>
+                                <ul class="movie-info">
+                                    <li>{{:year}} /</li>
+                                    <li>{{:kind}} /</li>
+                                    <li>{{:runtime}}</li>
+                                </ul>
+                            </div>
+                            <div class="col6">
+                                <div class="rating">{{:rating}}</div>
+                            </div>
+                        </div>
+                        <div class="mr-grid">
+                            <div class="col1">
+                                <ul class="movie-gen">
+                                    <li>{{:genres}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mr-grid">
+                            <div class="col1">
+                                <p class="movie-description">{{:plot}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </script>
+        <div id="seen" class="result"></div>
+        <script id="tmpSeen" type="text/x-jsrender">
+            <div class="smallMovie">       
+                <a href="{{:url}}">
+                    <div class="text-movie-cont">
+                        <div class="mr-grid">
+                            <div class="col6rest">
+                                <p>{{:title}}</p>
+                                <ul class="movie-info">
+                                    <li>{{:year}} /</li>
+                                    <li>{{:kind}} /</li>
+                                    <li>{{:runtime}}</li>
+                                </ul>
+                            </div>
+                            <div class="col6">
+                                <div class="rating">{{:rating}}</div>
+                            </div>
+                        </div>
+                        <div class="mr-grid">
+                            <div class="col1">
+                                <ul class="movie-gen">
+                                    <li>{{:genres}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </script>
+
+        <input type='text' id='movie' class="lbl medium-copy" autocomplete="on" placeholder="Add Movie/TV" size="50"/>
+        <input type='button' class="btn" value='Suggest' onclick="getSuggested()" />
+        <input type='button' class="btn" value='Undo' onclick="undo()" />
+        <input type='button' class="btn" id="copyBtn" value='Copy' onclick="copy()" /><br>
+    </div>
+</body>
+
+</html>

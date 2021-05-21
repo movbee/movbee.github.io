@@ -1,0 +1,329 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+body {
+    font-size: 75%;
+    font-family: ColfaxAI;
+    background: #0000ff4d;
+    display: flex;
+    align-items: center;
+}
+
+.rec
+{
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align:center;
+}
+
+.rec li 
+{
+    display:inline-block;
+    padding:0;
+}
+
+.lbl{
+    border: none;
+    margin: 5px;
+    border-radius: 10px;
+    text-align:center;
+    outline: none;
+}
+
+.btn{
+    background:#222;
+    color:white;
+    border:none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 5px;
+    outline: none;
+}
+
+.btn:hover{
+    cursor:pointer;
+    background:dodgerblue;
+}
+
+.addBtn{
+    background:#222;
+    border:none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin: 5px;
+    outline: none;
+    position: relative;
+    z-index: 2222;
+    float: right;
+    color: rgb(204, 177, 58);
+    font-size: 25px;
+}
+
+.addBtn:hover{
+    cursor:pointer;
+    background:dodgerblue;
+}
+
+
+.result {
+    overflow: auto;
+    /* overflow-x: scroll; */
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.movie-img {
+    width: 100%;
+    height: 32vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 111 !important;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: relative;
+  }
+  
+  .movie {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+39,1e1b26+53&0+38,1+55 */
+    background:rgb(24, 24, 24);
+    /* IE6-9 */
+    background-size: contain;
+    background-size: cover;
+    z-index: 1 !important;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px darkslateblue;
+    border-radius: 4px;
+    height: 57vh;
+    color: white;
+    white-space: normal;
+    max-width: 240px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px;
+  }
+
+  .smallMovie {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+39,1e1b26+53&0+38,1+55 */
+    background:rgb(24, 24, 24);
+    /* IE6-9 */
+    background-size: contain;
+    background-size: cover;
+    z-index: 1 !important;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px darkslateblue;
+    border-radius: 4px;
+    height: 12vh;
+    color: white;
+    white-space: normal;
+    width: 240px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px;
+  }
+  
+  .text-movie-cont {
+    padding: 10px 10px;
+    text-align: justify;
+  }
+  
+  .action-btn {
+    text-align: right;
+  }
+  .action-btn input {
+    color: #fe4141;
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .watch-btn {
+    display: block;
+    border: 1px solid #fe4141;
+    border-radius: 5px;
+    padding: 4px;
+    width: 140px;
+  }
+  .watch-btn h3 i {
+    font-size: 14px;
+    margin-right: 2px;
+    position: relative;
+    float: left;
+    line-height: 1;
+  }
+  
+  .action-row {
+    margin-top: 24px;
+  }
+  
+  .summary-row {
+    margin-top: 12px;
+  }
+  
+  .movie-gen {
+    margin: 0px;
+    padding: 0px;
+    margin-top: -7px;
+  }
+
+  .movie-info, .movie-likes {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .movie-info li, .movie-gen li, .movie-likes li {
+    font-size: 12px;
+    color: #818181;
+    width: auto;
+    display: block;
+    float: left;
+    margin-right: 6px;
+    font-weight: 600;
+  }
+  
+  .movie-details {
+    font-size: 12px;
+    font-weight: 300;
+    color: #b4b4b4;
+  }
+  
+  .movie-description {
+    font-size: 12px;
+    font-weight: 400;
+    color: #9b9b9b;
+    text-align: justify;
+    line-height: 1.3;
+  }
+  
+  .movie-actors {
+    font-size: 12px;
+    font-weight: 300;
+    color: #e7e7e7;
+    font-style: italic;
+  }
+  
+  /* TYPOGRAPHY ENDS */
+  /** GRID STARTS **/
+  .thegrid {
+    margin: 0 auto;
+  }
+  
+  .elements-distance, .movie-details, .movie-description, .movie-actors {
+    margin: 0px;
+  }
+  
+  .mr-grid {
+    width: 100%;
+  }
+  
+  .mr-grid:before,
+  .mr-grid:after {
+    content: "";
+    display: table;
+  }
+  
+  .mr-grid:after {
+    clear: both;
+  }
+  
+  .mr-grid {
+    *zoom: 1;
+  }
+  
+  .col1,
+  .col2,
+  .col3,
+  .col3rest,
+  .col4,
+  .col4rest,
+  .col5,
+  .col5rest,
+  .col6,
+  .col6rest {
+    margin: 0% 0.5% 0.5% 0.5%;
+    padding: 1%;
+    float: left;
+    display: block;
+  }
+  
+  /* Columns match, minus margin sum. E.G. margin-left+margin-right=1%, col2=50%-1% - added padding:1%*/
+  .col1 {
+    width: 98%;
+  }
+  
+  .col2 {
+    width: 47%;
+  }
+  
+  .col3 {
+    width: 30.3333333333%;
+  }
+  
+  .col4 {
+    width: 22%;
+  }
+  
+  .col5 {
+    width: 17%;
+  }
+  
+  .col6 {
+    width: 13.6666666667%;
+  }
+  
+  /* Columns match with their individual number. E.G. col3+col3rest=full width row */
+  .col3rest {
+    width: 63.6666666667%;
+  }
+  
+  .col4rest {
+    width: 72%;
+  }
+  
+  .col5rest {
+    width: 77%;
+  }
+  
+  .col6rest {
+    width: 80.3333333333%;
+  }
+  
+  /* .rating {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 50px;
+    position: relative;
+    float: right;
+    text-align: center;
+    width: 50px;
+  } */
+  
+  
+  
+  .rating {
+    width: 35px;
+    height: 35px;
+    line-height: 38px;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .rating:after {
+    border-radius: 100%;
+    border: 2px solid rgb(204, 177, 58);
+    background-color: rgb(204, 177, 58);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+  }
