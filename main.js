@@ -13,7 +13,7 @@ window.onload=function(){
 
 function getCard(imdb_id, card, updateView){
     $.ajax({
-        url:"http://prafullasd.pythonanywhere.com/card/" + imdb_id,
+        url:"https://prafullasd.pythonanywhere.com/card/" + imdb_id,
         type:"GET",
         dataType: 'json',
         success: function(result){
@@ -29,7 +29,7 @@ function getCard(imdb_id, card, updateView){
 
 function getMovieAndID(movie, callback){
     $.ajax({
-        url:"http://prafullasd.pythonanywhere.com/movie",
+        url:"https://prafullasd.pythonanywhere.com/movie",
         type:"POST",
         data: JSON.stringify({"movie": movie}),
         dataType: 'json',
@@ -106,7 +106,7 @@ function getSuggested() {
         }
     }
     $.ajax({
-        url:"http://prafullasd.pythonanywhere.com/suggest",
+        url:"https://prafullasd.pythonanywhere.com/suggest",
         type:"POST",
         data: JSON.stringify({"movies": movies, "tries": 1}),
         dataType: 'json',
