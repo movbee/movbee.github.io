@@ -1,4 +1,5 @@
 var movies = [];
+var suggestedMovies = [];
 var seenCards = [];
 var suggestedCards = [];
 var idCache = {}
@@ -121,9 +122,11 @@ function addMovie() {
 
 function getSuggested() {
     suggestedCards = [];
+    suggestedMovies = [];
     callback = function(results){
         for (var result of results) {
             card = dummyCard(result["movie"]);
+            suggestedMovies.push(result["movie"]);
             suggestedCards.push(card);
             updateSuggested();
             getCard(result["imdb_id"], card, updateSuggested);
@@ -157,7 +160,7 @@ function add(movie){
 }
 
 function copy(){
-  navigator.clipboard.writeText(movies.join(", ")).then(() => {
+  navigator.clipboard.writeText(suggestedMovies.join("\n")).then(() => {
       document.getElementById("copyBtn").style = "background:#222";
   })
   .catch((error) => { alert(`Copy failed! ${error}`) })
