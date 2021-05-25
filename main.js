@@ -4,11 +4,18 @@ var suggestedCards = [];
 var idCache = {}
 var cardCache = {};
 
+// const BASE_URL = "http://0.0.0.0:8000/";
+const BASE_URL = "https://prafullasd.pythonanywhere.com/"
+
 window.onload=function(){
-    const node = document.getElementById('movie');
-    node.addEventListener('keydown', function onEvent(event) {
+    document.getElementById('movie').addEventListener('keydown', function onEvent(event) {
         if (event.key === "Enter") {
             addMovie();
+        }
+    });
+    document.getElementById('prompt').addEventListener('keydown', function onEvent(event) {
+        if (event.key === "Enter") {
+            getSuggested();
         }
     });
 }
@@ -21,7 +28,7 @@ function getCard(imdb_id, card, updateView){
     }
     else {
         $.ajax({
-            url:"https://prafullasd.pythonanywhere.com/card/" + imdb_id,
+            url:BASE_URL + "card/" + imdb_id,
             type:"GET",
             dataType: 'json',
             success: function(result){
@@ -44,7 +51,7 @@ function getMovieAndID(movie, callback){
     }
     else {
         $.ajax({
-            url:"https://prafullasd.pythonanywhere.com/movie",
+            url:BASE_URL + "movie",
             type:"POST",
             data: JSON.stringify({"movie": movie}),
             dataType: 'json',
@@ -122,10 +129,11 @@ function getSuggested() {
             getCard(result["imdb_id"], card, updateSuggested);
         }
     }
+    var prompt = document.getElementById("prompt").value;
     $.ajax({
-        url:"https://prafullasd.pythonanywhere.com/suggest",
+        url: BASE_URL + "suggest",
         type:"POST",
-        data: JSON.stringify({"movies": movies, "tries": 1}),
+        data: JSON.stringify({"movies": movies, prompt: prompt}),
         dataType: 'json',
         contentType: 'application/json',
         success: function(result){
