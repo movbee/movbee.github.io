@@ -6,7 +6,7 @@ var idCache = {}
 var cardCache = {};
 
 // const BASE_URL = "http://0.0.0.0:8000/";
-const BASE_URL = "https://prafullasd.pythonanywhere.com/"
+const BASE_URL = "https://prafullasd-movbee-server.modal.run/"
 
 window.onload=function(){
     document.getElementById('movie').addEventListener('keydown', function onEvent(event) {
